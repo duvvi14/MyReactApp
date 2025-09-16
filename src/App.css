@@ -1,42 +1,14 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+/* App.css - minimal styling so UI looks decent */
+body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; padding: 20px; }
+.app-root header { display:flex; align-items:center; justify-content:space-between; margin-bottom: 16px;}
+nav a { margin-right: 8px; text-decoration: none; color: #0366d6; }
+.lobby .primary, .game-info .primary, button.primary { background:#0366d6; color:white; border:none; padding:8px 12px; border-radius:6px; cursor:pointer; }
+.sessions ul { list-style:none; padding-left:0; }
+.session-item { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom: 1px solid #eee; }
+.session-actions button { margin-left:8px; }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+.game-area { display:flex; gap: 24px; align-items:flex-start; margin-top: 12px; }
+.game-info { width:260px; }
+.board { display:grid; grid-template-columns:repeat(3, 80px); grid-gap:8px; }
+.square { width:80px; height:80px; font-size:28px; cursor:pointer; background:#f7f7f7; border-radius:6px; border:1px solid #ddd; color: red; font-weight: bold; }
+.square.winning { background: linear-gradient(90deg, #ffe082, #ffd54f); box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
