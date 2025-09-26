@@ -1,8 +1,16 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
+import InitialScreen from "./pages/InitialScreen";
 import Lobby from "./pages/Lobby";
 import Game from "./pages/Game";
+import { useUser } from "./context/UserContext";
 import "./App.css";
+
+function RequireUser({ children }) {
+  const { user } = useUser();
+  if (!user) return <Navigate to="/" replace />;
+  return children;
+}
 
 export default function App() {
   return (
@@ -10,26 +18,30 @@ export default function App() {
       <header>
         <h1>Tic-Tac-Toe Lobby</h1>
         <nav>
-          <Link to="/">Home</Link> | <Link to="/lobby">Lobby</Link>
+          <Link to="/">Home</Link> 
         </nav>
       </header>
 
       <main>
         <Routes>
-          <Route path="/" element={
-            <div>
-              <h2>Welcome</h2>
-              <p>Use the lobby to create or join a game session.</p>
-              <p><Link to="/lobby">Go to Lobby</Link></p>
-            </div>
+          <Route path="/" element={<InitialScreen />} />
+          <Route path="/lobby" element={
+            <RequireUser>
+              <Lobby />
+            </RequireUser>
           } />
-          <Route path="/lobby" element={<Lobby />} />
-          <Route path="/game/:id" element={<Game />} />
+          <Route path="/game/:id" element={
+            <RequireUser>
+              <Game />
+            </RequireUser>
+          } />
         </Routes>
       </main>
     </div>
   );
 }
+
+
 
 // import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
