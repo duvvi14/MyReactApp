@@ -31,21 +31,23 @@ A full-stack React + NodeJS style project to create a **multi-user Tic-Tac-Toe l
 
 ## Project Structure
 
+```bash
 src/
-App.jsx # Main routes
-main.jsx # ReactDOM + BrowserRouter + UserProvider
-pages/
-InitialScreen.jsx
-Lobby.jsx
-Game.jsx
-context/
-UserContext.jsx
-services/
-api.js # API stub with fallback
-utils/
-calcWinner.js # Game logic helper
-index.css
-App.css
+  App.jsx           # Main routes
+  main.jsx          # ReactDOM + BrowserRouter + UserProvider
+  pages/
+    InitialScreen.jsx
+    Lobby.jsx
+    Game.jsx
+  context/
+    UserContext.jsx
+  services/
+    api.js          # API stub with fallback
+  utils/
+    calcWinner.js   # Game logic helper
+  index.css
+  App.css
+```
 
 ---
 
