@@ -25,8 +25,13 @@
 //   socket = null;
 // }
 // src/services/socket.js
+// src/services/socket.js
 import { io } from "socket.io-client";
 
-export const socket = io("http://localhost:5000", {
+// Connect to your backend server
+export const socket = io("http://localhost:4000", {
   transports: ["websocket"],
+  reconnection: true,
+  reconnectionAttempts: 5,
 });
+
